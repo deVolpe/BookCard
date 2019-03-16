@@ -1,0 +1,109 @@
+$primary-font: Tahoma;
+$section-font: "Open Sans";
+$section-background-color: #f2f2f2;
+$button-height: 67px;
+$border-radius: 5px;
+$line-height: 27px;
+$reset-border: 0;
+
+
+@mixin text-view($font-size, $font-weight, $line-height) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+}
+
+%button-view {
+  height: $button-height;
+  border: $reset-border;
+  border-radius: $border-radius;
+}
+
+body {
+  font-family: $primary-font;
+}
+
+.header {
+  padding-top: 77px;
+  padding-bottom: 96px;
+
+  .header-text {
+    padding-left: 47px;
+
+    .header-text__author {
+      @include text-view(30px, 400, normal);
+      margin-bottom: 35px;
+    }
+
+    .header-text__descrip {
+      @include text-view(18px, 400, $line-height);
+      margin-bottom: 47px;
+      width: 526px;
+    }
+
+    .header-text__title {
+      @include text-view(48px, 700, normal);
+      margin-bottom: 15px;
+    }
+
+    .header-text__price {
+      @include text-view(48px, 400, $line-height);
+      margin-bottom: 53px;
+    }
+  }
+
+  .button {
+    @include text-view(24px, 700, 27px);
+    @extend %button-view;
+    background-color: #f05a22;
+    border: 2px solid transparent;
+    color: white;
+    padding: 22px 43px;
+    margin-right: 40px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .button-o {
+    @include text-view(24px, 700, 27px);
+    @extend %button-view;
+    background-color: transparent;
+    border: 2px solid #f05a22;
+    color: #f05a22;
+    padding: 22px 30px;
+  }
+}
+
+.section-title {
+  @include text-view(30px, 700, $line-height);
+  padding-top: 89px;
+  padding-bottom: 83px;
+}
+
+
+.features {
+  background-color: $section-background-color;
+  text-align: center;
+
+  .features__img {
+    min-height: 50px;
+  }
+
+  .features__text {
+    @include text-view(18px, 400, 22px);
+    font-family: $section-font;
+    margin-top: 16px;
+    padding-bottom: 100px;
+  }
+}
+
+.footer {
+  text-align: center;
+  padding-bottom: 111px;
+
+  &-img {
+    margin-bottom: 40px;
+  }
+}
